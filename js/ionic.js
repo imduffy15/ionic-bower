@@ -2165,9 +2165,9 @@ window.ionic.version = '1.0.0';
       self.platforms = [];
       var grade = 'a';
 
-      if (self.isWebView()) {
+      if (self.isWebView() || window.navigator.standalone) {
         self.platforms.push('webview');
-        if (!(!window.cordova && !window.PhoneGap && !window.phonegap)) {
+        if (!(!window.cordova && !window.PhoneGap && !window.phonegap) || window.navigator.standalone) {
           self.platforms.push('cordova');
         } else if (window.forge) {
           self.platforms.push('trigger');
